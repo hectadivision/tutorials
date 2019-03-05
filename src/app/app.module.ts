@@ -16,6 +16,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { environment } from 'src/environments/environment';
+
+import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
     /* for development
@@ -42,7 +45,8 @@ export const createTranslateLoader = (http: HttpClient) => {
                 useFactory: createTranslateLoader,
                 deps: [HttpClient]
             }
-        })
+        }),
+        NgxAuthFirebaseUIModule.forRoot(environment.firebaseConfig)
     ],
     providers: [],
     bootstrap: [AppComponent]

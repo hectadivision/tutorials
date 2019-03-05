@@ -6,6 +6,8 @@ import { MatButtonModule, MatCheckboxModule, MatInputModule } from '@angular/mat
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 
+import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -13,7 +15,8 @@ import { LoginComponent } from './login.component';
         MatInputModule,
         MatCheckboxModule,
         MatButtonModule,
-        FlexLayoutModule.withConfig({addFlexToParent: false})
+        FlexLayoutModule.withConfig({addFlexToParent: false}),
+        NgxAuthFirebaseUIModule
     ],
     declarations: [LoginComponent]
 })

@@ -15,4 +15,12 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('isLoggedin', 'true');
         this.router.navigate(['/dashboard']);
     }
+
+    printUser(event) {
+        console.log(event);
+    }
+
+    printError(event) {
+        console.error(event);
+    }
 }
