@@ -2,7 +2,7 @@ import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { QuestionService } from '../question.service';
 import { Question } from '../question.model';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
-// import { QuestionCreateComponent } from '../question-create/question-create.component';
+import { QuestionCreateComponent } from '../question-create/question-create.component';
 
 
 
@@ -12,7 +12,7 @@ import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material';
   styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent implements OnInit {
-  displayedColumns = ['id', 'title', 'body', 'creationDate'];
+  displayedColumns = ['title', 'body', 'creationDate'];
   questions: Question[];
   currentQuestion: Question;
   constructor(private questionService: QuestionService, public dialog: MatDialog, private viewContainerRef: ViewContainerRef) {}
@@ -43,12 +43,9 @@ export class QuestionsComponent implements OnInit {
   applyFilter(value: string) {}
 
   openDialog(): void {
-    // const config = new MatDialogConfig();
-    // config.viewContainerRef = this.viewContainerRef;
-    // config.width = '250px';
-    // config.data = { question: this.currentQuestion };
-    const dialogRef = this.dialog.open(QuestionCreateComponent, {
-      width: '200px'
+    const dialogRef: MatDialogRef<QuestionCreateComponent> = this.dialog.open(QuestionCreateComponent, {
+      width: '50%',
+      data : { question: this.currentQuestion }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -56,16 +53,4 @@ export class QuestionsComponent implements OnInit {
       this.currentQuestion = result;
     });
   }
-}
-
-
-@Component({
-  selector: 'app-question-create',
-  template: '<h1>create</h1>'
-})
-export class QuestionCreateComponent {
-
-  constructor() { }
-
-
 }

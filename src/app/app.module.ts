@@ -19,6 +19,7 @@ import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
 
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
+import { FirestoreSettingsToken } from '@angular/fire/firestore';
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
     /* for development
@@ -48,7 +49,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         }),
         NgxAuthFirebaseUIModule.forRoot(environment.firebaseConfig)
     ],
-    providers: [],
+    providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

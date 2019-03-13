@@ -6,36 +6,39 @@
     <mat-icon aria-label="Example icon-button with a heart icon">add_circle</mat-icon>
 </button>
 
-<div class="mat-elevation-z8">
-  <table mat-table [dataSource]="questions" matSort>
+<div >
+  <mat-table [dataSource]="questions" matSort class="mat-elevation-z8">
 
       <!-- ID Column -->
       <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-          <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
       </ng-container>
+      
 
       <!-- Title Column -->
       <ng-container matColumnDef="title">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
-          <td mat-cell *matCellDef="let row"> {{row.title}}% </td>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
       </ng-container>
 
       <!-- Dscription Column -->
       <ng-container matColumnDef="body">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
-          <td mat-cell *matCellDef="let row"> {{row.body}} </td>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+              <app-code-editor [code]="row.body" [readOnly]='true'></app-code-editor>
+          </mat-cell>
       </ng-container>
 
       <!-- creationDate Column -->
       <ng-container matColumnDef="creationDate">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Created Date </th>
-          <td mat-cell *matCellDef="let row"> {{row.creationDate}} </td>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Created Date </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.creationDate}} </mat-cell>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+  </mat-table>
 
   <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>

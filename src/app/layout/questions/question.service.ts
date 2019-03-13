@@ -14,7 +14,7 @@ export class QuestionService {
   }
 
   createQuestion(question: Question) {
-    return this.firestore.collection('questions').add(question);
+    return this.firestore.collection('questions').add({...question});
   }
 
   updateQuestion(question: Question) {

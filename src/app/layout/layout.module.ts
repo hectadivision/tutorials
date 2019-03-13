@@ -16,6 +16,7 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { NavComponent } from './nav/nav.component';
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
+import { CodeEditorComponent } from './components/code-editor/code-editor.component';
 
 @NgModule({
     imports: [
@@ -31,6 +32,7 @@ import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
         TranslateModule,
         NgxAuthFirebaseUIModule
     ],
-    declarations: [LayoutComponent, NavComponent, TopnavComponent, SidebarComponent]
+    declarations: [LayoutComponent, NavComponent, TopnavComponent, SidebarComponent, CodeEditorComponent],
+    exports: [CodeEditorComponent]
 })
 export class LayoutModule {}
