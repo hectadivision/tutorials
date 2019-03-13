@@ -23,13 +23,15 @@ export class QuestionFormComponent implements OnInit {
     this.QuestionForm.setValue({
       title: this.question.title || '',
       description: this.question.body || '',
+      answer: this.question.answer || '',
     });
   }
 
   initForm() {
     this.QuestionForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(2)]],
-      description: ['']
+      description: [''],
+      answer: ['', [Validators.required]],
     });
   }
 
@@ -41,6 +43,7 @@ export class QuestionFormComponent implements OnInit {
     this.onSubmitForm.emit(new Question({
       title: this.QuestionForm.value.title,
       body: this.QuestionForm.value.description,
+      answer: this.QuestionForm.value.answer,
     }));
     this.resetForm();
   }

@@ -12,7 +12,7 @@ import { QuestionCreateComponent } from '../question-create/question-create.comp
   styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent implements OnInit {
-  displayedColumns = ['title', 'body', 'creationDate'];
+  displayedColumns = ['body', 'answer'];
   questions: Question[];
   currentQuestion: Question;
   constructor(private questionService: QuestionService, public dialog: MatDialog, private viewContainerRef: ViewContainerRef) {}

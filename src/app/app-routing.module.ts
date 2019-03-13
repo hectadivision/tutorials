@@ -7,7 +7,7 @@ const routes: Routes = [
     {
         path: '',
         loadChildren: './layout/layout.module#LayoutModule',
-        canActivate: [LoggedInGuard]
+        //canActivate: [LoggedInGuard]
     },
     {
         path: 'login',

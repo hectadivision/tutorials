@@ -3,6 +3,9 @@
     <input matInput placeholder="Title" formControlName="title" />
   </mat-form-field>
   <app-code-editor formControlName="description"></app-code-editor>
-  <button mat-button (click)="resetForm()">Cancel</button>
+  <mat-form-field>
+    <input matInput placeholder="Answer" formControlName="answer" />
+  </mat-form-field>
+  <button mat-button type="button" (click)="resetForm()">Reset</button>
   <button mat-button type="submit" cdkFocusInitial>Submit</button>
 </form>

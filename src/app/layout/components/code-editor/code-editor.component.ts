@@ -110,7 +110,8 @@ export class CodeEditorComponent implements OnInit, OnChanges, ControlValueAcces
     this.beautifyEditor();
   }
 
-  onBeautify(event) {
+  onBeautify(event: Event) {
+
     this.beautifyEditor();
     // this.codeChange.emit(this.getCompressCode());
   }
